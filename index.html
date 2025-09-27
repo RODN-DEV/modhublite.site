@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModHubLTE - Home</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">ModHub<span>LTE</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="welcome-animation" id="welcomeText"></div>
+            <h1>Your Ultimate Modding Destination</h1>
+            <p>Access a wide collection of application mods, video tutorials, and modding tools all in one place.</p>
+            <a href="login.html" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2023 ModHubLTE. All rights reserved.</p>
+                <div class="contact-support">
+                    <a href="https://wa.me/+256745430208" target="_blank" class="support-link">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Support
+                    </a>
+                    <a href="https://t.me/v2_0x1" target="_blank" class="support-link">
+                        <i class="fab fa-telegram"></i> Telegram Support
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Supabase configuration with YOUR credentials
+        const SUPABASE_URL = 'https://wvdnisgzuixmshwgvuyc.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind2ZG5pc2d6dWl4bXNod2d2dXljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5NzU0NTcsImV4cCI6MjA3NDU1MTQ1N30.PPjbthgBzmP6S8aljThHmHERWZj1ATLwL71QnFF-jbM';
+        
+        // Initialize Supabase
+        window.supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        
+        // Welcome animation
+        const welcomeText = "Welcome To ModHubLTE we are glad to see you again enjoy full access to tools and videos";
+        let i = 0;
+        
+        function typeWriter() {
+            if (i < welcomeText.length) {
+                document.getElementById("welcomeText").innerHTML += welcomeText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        
+        // Start animation when page loads
+        document.addEventListener('DOMContentLoaded', typeWriter);
+    </script>
+</body>
+</html>
